@@ -34,8 +34,8 @@ export class MainSectionComponent {
     this.hasStartedCarousel = true;
     this.startDelayId = window.setTimeout(() => {
       this.advanceCarousel();
-      this.intervalId = window.setInterval(() => this.advanceCarousel(), 2200);
-    }, 2200);
+      this.intervalId = window.setInterval(() => this.advanceCarousel(), 2000);
+    }, 2000);
   }
 
   private advanceCarousel() {
@@ -51,7 +51,7 @@ export class MainSectionComponent {
         this.resetFrameId = window.requestAnimationFrame(() => {
           this.isResetting.set(false);
         });
-      }, 750);
+      }, 1000);
     }
   }
 

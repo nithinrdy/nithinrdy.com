@@ -145,13 +145,17 @@
     opacity: 0.8;
     transform: translate(0%, 20%);
   }
-  80% {
+  /* 80% {
     opacity: 1;
     transform: translate(0%, -30%);
   }
   90% {
     opacity: 1;
     transform: translate(0%, 10%);
+  } */
+  90% {
+    opacity: 1;
+    transform: translate(0%, 0%);
   }
   100% {
     opacity: 1;

@@ -14,7 +14,10 @@
 .bar-fade {
   opacity: 0;
   transform: translateY(-100%);
-  animation: barFade 1.5s 3s cubic-bezier(0.001, 0.001, 0, 1) both;
+}
+
+.bar-fade.is-shown {
+  animation: barFade 1.5s cubic-bezier(0.001, 0.001, 0, 1) both;
 }
 
 @keyframes barFade {

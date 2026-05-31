@@ -4,5 +4,5 @@
   </div>
 }
 <app-main-section [startCarousel]="!showLoader()"></app-main-section>
-<app-links-bar></app-links-bar>
-<app-email-bar></app-email-bar>
+<app-links-bar [isShown]="!showLoader()"></app-links-bar>
+<app-email-bar [isShown]="!showLoader()"></app-email-bar>
