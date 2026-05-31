@@ -1,0 +1,17 @@
+<div
+  class="widescreen-styles bar-fade flex flex-col items-center justify-between fixed bottom-1 left-4 gap-0"
+>
+  @for (link of links; track link.id) {
+    <a
+      [href]="link.url"
+      [attr.aria-label]="link.id"
+      target="_blank"
+      rel="noopener"
+      class="inline-block hover:-translate-y-1 hover:text-main-accent hover:cursor-none transition-all duration-300"
+    >
+      <i class="bi bi-{{ link.id }} text-[32px]"></i>
+    </a>
+  }
+
+  <div class="h-52 w-0.5 link-bar border-black"></div>
+</div>

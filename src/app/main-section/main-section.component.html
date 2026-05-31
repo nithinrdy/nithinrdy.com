@@ -1,0 +1,14 @@
+<section class="main-section-container">
+  <h1 class="hero-title">
+    <span class="hero-greeting">Hi, I'm</span>
+    <span class="hero-carousel" [style.--active-index]="activeWordIndex()">
+      <span class="hero-carousel-track" [class.is-resetting]="isResetting()">
+        @for (word of carouselItems; track $index) {
+          <span class="hero-carousel-item">
+            <span class="hero-carousel-text">{{ word }}</span>
+          </span>
+        }
+      </span>
+    </span>
+  </h1>
+</section>

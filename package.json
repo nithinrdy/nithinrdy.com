@@ -10,7 +10,7 @@
     "serve:ssr:nithinrdy.com": "node dist/nithinrdy.com/server/server.mjs"
   },
   "private": true,
-  "packageManager": "npm@10.9.2",
+  "packageManager": "yarn@4.15.0",
   "dependencies": {
     "@angular/common": "^21.2.0",
     "@angular/compiler": "^21.2.0",

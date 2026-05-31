@@ -1,3 +1,53 @@
-/* You can add global styles to this file, and also import other style files */
-
 @import 'tailwindcss';
+
+@theme {
+  --color-main-accent: #7d97cf;
+}
+
+:root {
+  --main-base: #f0f0f0;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+html {
+  background-color: var(--main-base);
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  min-height: 100dvh;
+  background-color: var(--main-base);
+}
+
+.rajdhani-light {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.rajdhani-regular {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.rajdhani-medium {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.rajdhani-semibold {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+.rajdhani-bold {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
