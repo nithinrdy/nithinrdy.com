@@ -22,6 +22,24 @@ body {
   background-color: var(--main-base);
 }
 
+::view-transition-group(carousel-item-about),
+::view-transition-group(carousel-item-work),
+::view-transition-group(carousel-item-writing) {
+  animation-duration: 500ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(carousel-item-about),
+::view-transition-new(carousel-item-about),
+::view-transition-old(carousel-item-work),
+::view-transition-new(carousel-item-work),
+::view-transition-old(carousel-item-writing),
+::view-transition-new(carousel-item-writing) {
+  animation-duration: inherit;
+  animation-timing-function: inherit;
+  mix-blend-mode: normal;
+}
+
 .rajdhani-light {
   font-family: 'Rajdhani', sans-serif;
   font-weight: 300;

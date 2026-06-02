@@ -10,16 +10,16 @@ export class LinksBarComponent {
 
   readonly links = [
     {
+      id: 'bluesky',
+      url: 'https://bsky.app/profile/nithinrdy.bsky.social',
+    },
+    {
       id: 'github',
       url: 'https://www.github.com/nithinrdy',
     },
     {
       id: 'linkedin',
       url: 'https://www.linkedin.com/in/vishnu-nithin-reddy/',
-    },
-    {
-      id: 'bluesky',
-      url: 'https://bsky.app/profile/nithinrdy.bsky.social',
     },
     {
       id: 'substack',

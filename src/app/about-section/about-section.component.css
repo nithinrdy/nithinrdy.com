@@ -1,0 +1,35 @@
+.about-section-container {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 6rem 4.5rem;
+  color: #000;
+  text-align: center;
+}
+
+.about-copy {
+  max-width: 48rem;
+  color: var(--color-main-accent);
+  font-size: 2.5rem;
+  line-height: 1.2;
+}
+
+@media (max-width: 680px) {
+  .about-section-container {
+    padding-inline: 1.25rem;
+  }
+
+  .about-copy {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 420px) {
+  .about-copy {
+    font-size: 1.65rem;
+  }
+}

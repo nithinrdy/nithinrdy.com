@@ -1,5 +1,13 @@
 import { isPlatformBrowser } from '@angular/common';
-import { Component, DestroyRef, Input, PLATFORM_ID, inject, signal } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  Input,
+  PLATFORM_ID,
+  afterNextRender,
+  inject,
+  signal,
+} from '@angular/core';
 
 @Component({
   selector: 'app-main-section',
@@ -7,7 +15,12 @@ import { Component, DestroyRef, Input, PLATFORM_ID, inject, signal } from '@angu
   styleUrls: ['./main-section.component.css'],
 })
 export class MainSectionComponent {
-  readonly carouselItems = ['Nithin', 'a developer', 'a writer', 'Nithin'];
+  readonly carouselItems = [
+    { word: 'Nithin', section: 'about' },
+    { word: 'a developer', section: 'work' },
+    { word: 'a writer', section: 'writing' },
+    { word: 'Nithin', section: 'about' },
+  ];
   private readonly platformId = inject(PLATFORM_ID);
   private readonly destroyRef = inject(DestroyRef);
 
@@ -17,25 +30,73 @@ export class MainSectionComponent {
   private intervalId: number | undefined;
   private resetTimeoutId: number | undefined;
   private resetFrameId: number | undefined;
-  private hasStartedCarousel = false;
+  private _navbarShown = false;
 
   @Input()
-  set startCarousel(shouldStart: boolean) {
-    if (shouldStart) {
-      this.startCarouselTimer();
+  set navbarShown(isMoved: boolean) {
+    if (this._navbarShown === isMoved) return;
+
+    this._navbarShown = isMoved;
+
+    if (isMoved) {
+      this.pauseCarouselTimer();
+    } else {
+      this.resumeCarouselTimer();
     }
   }
 
-  private startCarouselTimer() {
-    if (this.hasStartedCarousel || !isPlatformBrowser(this.platformId)) {
+  get navbarShown() {
+    return this._navbarShown;
+  }
+
+  private resumeCarouselTimer() {
+    if (
+      this.navbarShown ||
+      !isPlatformBrowser(this.platformId) ||
+      this.startDelayId !== undefined ||
+      this.intervalId !== undefined
+    ) {
       return;
     }
 
-    this.hasStartedCarousel = true;
+    if (this.activeWordIndex() === this.carouselItems.length - 1) {
+      this.isResetting.set(true);
+      this.activeWordIndex.set(0);
+      this.resetFrameId = window.requestAnimationFrame(() => {
+        this.isResetting.set(false);
+        this.resetFrameId = undefined;
+      });
+    }
+
     this.startDelayId = window.setTimeout(() => {
+      this.startDelayId = undefined;
+
+      if (this.navbarShown) return;
+
       this.advanceCarousel();
       this.intervalId = window.setInterval(() => this.advanceCarousel(), 2000);
     }, 2000);
+  }
+
+  private pauseCarouselTimer() {
+    if (!isPlatformBrowser(this.platformId)) {
+      return;
+    }
+
+    if (this.startDelayId !== undefined) {
+      window.clearTimeout(this.startDelayId);
+      this.startDelayId = undefined;
+    }
+
+    if (this.intervalId !== undefined) {
+      window.clearInterval(this.intervalId);
+      this.intervalId = undefined;
+    }
+
+    if (this.resetTimeoutId !== undefined) {
+      window.clearTimeout(this.resetTimeoutId);
+      this.resetTimeoutId = undefined;
+    }
   }
 
   private advanceCarousel() {
@@ -45,32 +106,33 @@ export class MainSectionComponent {
 
     if (nextIndex === this.carouselItems.length - 1) {
       this.resetTimeoutId = window.setTimeout(() => {
+        this.resetTimeoutId = undefined;
         this.isResetting.set(true);
         this.activeWordIndex.set(0);
 
         this.resetFrameId = window.requestAnimationFrame(() => {
           this.isResetting.set(false);
+          this.resetFrameId = undefined;
         });
-      }, 1000);
+      }, 750);
     }
   }
 
   constructor() {
+    afterNextRender(() => {
+      if (this.navbarShown) {
+        this.pauseCarouselTimer();
+      } else {
+        this.resumeCarouselTimer();
+      }
+    });
+
     this.destroyRef.onDestroy(() => {
-      if (this.startDelayId !== undefined) {
-        window.clearTimeout(this.startDelayId);
-      }
+      this.pauseCarouselTimer();
 
-      if (this.intervalId !== undefined) {
-        window.clearInterval(this.intervalId);
-      }
-
-      if (this.resetTimeoutId !== undefined) {
-        window.clearTimeout(this.resetTimeoutId);
-      }
-
-      if (this.resetFrameId !== undefined) {
+      if (this.resetFrameId !== undefined && isPlatformBrowser(this.platformId)) {
         window.cancelAnimationFrame(this.resetFrameId);
+        this.resetFrameId = undefined;
       }
     });
   }
