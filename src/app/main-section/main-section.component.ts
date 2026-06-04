@@ -74,8 +74,8 @@ export class MainSectionComponent {
       if (this.navbarShown) return;
 
       this.advanceCarousel();
-      this.intervalId = window.setInterval(() => this.advanceCarousel(), 2000);
-    }, 2000);
+      this.intervalId = window.setInterval(() => this.advanceCarousel(), 1500);
+    }, 1500);
   }
 
   private pauseCarouselTimer() {
@@ -114,7 +114,7 @@ export class MainSectionComponent {
           this.isResetting.set(false);
           this.resetFrameId = undefined;
         });
-      }, 750);
+      }, 600);
     }
   }
 

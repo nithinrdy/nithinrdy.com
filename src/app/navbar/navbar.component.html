@@ -7,7 +7,12 @@
       class="flex max-w-[calc(100vw-2rem)] items-center gap-[clamp(0.75rem,2.5vw,1.8rem)] overflow-x-auto rounded-lg border border-black/10 bg-[#f0f0f0]/85 px-[clamp(0.75rem,2vw,1rem)] py-[0.6rem] shadow-2xl backdrop-blur-[14px] pointer-events-auto [scrollbar-width:none] max-[420px]:max-w-[calc(100vw-1.5rem)]"
     >
       @for (item of navItems; track item.section) {
-        <a class="site-navbar-link" [href]="'#' + item.section">
+        <a
+          class="site-navbar-link"
+          [class.is-active]="activeSection() === item.section"
+          [attr.aria-current]="activeSection() === item.section ? 'location' : null"
+          [href]="'#' + item.section"
+        >
           <span
             class="inline-flex items-center"
             [style.view-transition-name]="'carousel-item-' + item.section"

@@ -1,0 +1,23 @@
+.text-transition--animating .text-transition__sizer {
+  visibility: hidden;
+}
+
+.text-transition__measure-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  white-space: pre;
+}
+
+.text-transition__accessible-text {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

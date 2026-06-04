@@ -1,0 +1,45 @@
+<span
+  class="text-transition relative inline-block max-w-full whitespace-pre duration-[420ms] transition-width motion-reduce:transition-none"
+  [style.transition-timing-function]="'cubic-bezier(0.22, 1, 0.36, 1)'"
+  [class.text-transition--animating]="isTransitioning()"
+  [style.width.px]="hostWidth()"
+>
+  <!-- invisible while transitioning -->
+  <span class="text-transition__sizer inline-block whitespace-pre" aria-hidden="true">{{
+    visibleText()
+  }}</span>
+
+  <!-- not rendered while stable (renderedCharacters would be an empty array) -->
+  <span class="text-transition__stage absolute inset-0 pointer-events-none" aria-hidden="true">
+    @for (character of renderedCharacters(); track character.key) {
+      <span
+        class="text-transition__character duration-[420ms] whitespace-pre inline-block top-0 left-0 absolute motion-reduce:transition-none"
+        [style.transition-property]="'transform, opacity'"
+        [style.transition-timing-function]="'cubic-bezier(0.22, 1, 0.36, 1)'"
+        [style.opacity]="character.opacity"
+        [style.transform]="'translate3d(' + character.x + 'px, ' + character.y + 'px, 0)'"
+        >{{ character.value }}</span
+      >
+    }
+  </span>
+
+  <!-- just for measurement, invisible at all times -->
+  <span
+    class="text-transition__measure absolute invisible top-0 left-0 pointer-events-none"
+    aria-hidden="true"
+  >
+    <span class="text-transition__measure-text" data-text-transition-source>
+      @for (character of sourceCharacters(); track $index) {
+        <span [attr.data-text-transition-source-index]="$index">{{ character }}</span>
+      }
+    </span>
+
+    <span class="text-transition__measure-text" data-text-transition-target>
+      @for (character of targetCharacters(); track $index) {
+        <span [attr.data-text-transition-target-index]="$index">{{ character }}</span>
+      }
+    </span>
+  </span>
+
+  <span class="text-transition__accessible-text">{{ showString2 ? string2 : string1 }}</span>
+</span>

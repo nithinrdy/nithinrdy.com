@@ -1,5 +1,6 @@
 <section
-  class="flex min-h-screen min-h-dvh items-center justify-center px-[4.5rem] py-8 max-[680px]:px-5"
+  class="main-section flex items-center justify-center px-[4.5rem] py-8 max-[680px]:px-5"
+  [class.main-section--with-navbar]="navbarShown"
 >
   @if (!navbarShown) {
     <h1
@@ -12,33 +13,19 @@
       >
         <span class="hero-carousel-track" [class.is-resetting]="isResetting()">
           @for (word of carouselItems; track $index) {
-            @if ($index === 1 || $index === 2) {
-              <a class="hero-carousel-item" [href]="'#' + word.section">
-                <span
-                  class="hero-carousel-text transition-opacity duration-500"
-                  [style.view-transition-name]="
-                    activeWordIndex() === $index ? 'carousel-item-' + word.section : undefined
-                  "
-                  [style.opacity]="activeWordIndex() === $index ? 1 : 0"
-                >
-                  {{ word.word }}
-                </span>
-              </a>
-            } @else {
-              <a class="hero-carousel-item" [href]="'#' + word.section">
-                <span
-                  class="hero-carousel-text"
-                  [class.transition-opacity]="!isResetting()"
-                  [class.duration-500]="!isResetting()"
-                  [style.opacity]="activeWordIndex() === $index ? 1 : 0"
-                  [style.view-transition-name]="
-                    activeWordIndex() === $index ? 'carousel-item-' + word.section : undefined
-                  "
-                >
-                  {{ word.word }}
-                </span>
-              </a>
-            }
+            <a class="hero-carousel-item" [href]="'#' + word.section">
+              <span
+                class="hero-carousel-text"
+                [class.transition-opacity]="!isResetting()"
+                [class.duration-500]="!isResetting()"
+                [style.opacity]="activeWordIndex() === $index ? 1 : 0"
+                [style.view-transition-name]="
+                  activeWordIndex() === $index ? 'carousel-item-' + word.section : undefined
+                "
+              >
+                {{ word.word }}
+              </span>
+            </a>
           }
         </span>
       </span>

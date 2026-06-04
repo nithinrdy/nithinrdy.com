@@ -1,6 +1,38 @@
-<section id="about" class="about-section-container" aria-label="About">
-  <p class="about-copy">
-    Hey there! My name's Nithin and I'm a full-stack developer who loves working on the front-end
-    side of things in particular.
+<section
+  id="about"
+  class="min-h-screen flex flex-col items-center justify-center gap-6 px-16 py-12 text-left text-black max-[680px]:px-6"
+  aria-label="About"
+>
+  <p class="about-copy cursor-default select-none">
+    Hey there! My name's
+    <span
+      class="transition-text-container text-main-accent cursor-none"
+      (mouseenter)="setHoveredOver(true)"
+      (mouseleave)="setHoveredOver(false)"
+    >
+      <app-text-with-transition
+        string1="Nithin Reddy"
+        string2="nithinrdy"
+        [showString2]="isHoveredOver()"
+      ></app-text-with-transition></span
+    >.<br /><br />
+    I'm a generalist<span class="text-2xl align-super mr-1 ml-0.25 max-[680px]:text-lg"
+      >(or so I'd like to think)</span
+    >
+    full-stack web developer who enjoys working on the front-end side of things.<br />
+    <span class="text-2xl font-semibold opacity-50">
+      I spend my free time writing. And obsessing over this page's design. And browsing cat photos.
+      And watching medical
+      <span class="inline-block relative whitespace-nowrap">
+        dramas. And...
+        <span
+          class="absolute inset-0"
+          style="background: linear-gradient(90deg, transparent, var(--main-base))"
+        ></span>
+      </span>
+    </span>
+    <br />
+    <br /><br />
+    Anyway, curious about my work? Scroll on!
   </p>
 </section>

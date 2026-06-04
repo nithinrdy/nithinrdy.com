@@ -27,10 +27,12 @@
 .site-navbar-link:hover,
 .site-navbar-link:focus-visible {
   color: var(--color-main-accent);
+  cursor: none;
 }
 
 .site-navbar-link:hover::after,
-.site-navbar-link:focus-visible::after {
+.site-navbar-link:focus-visible::after,
+.site-navbar-link.is-active::after {
   transform: scaleX(1);
 }
 

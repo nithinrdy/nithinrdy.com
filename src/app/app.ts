@@ -40,7 +40,7 @@ export class App {
     afterNextRender(() => {
       const updateNavbarVisibility = () => {
         if (this.showLoader()) return;
-        this.setNavbarVisibility(window.scrollY > 20);
+        this.setNavbarVisibility(window.scrollY > 0);
       };
 
       setTimeout(() => {
