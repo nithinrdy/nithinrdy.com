@@ -1,0 +1,62 @@
+.avatar {
+  --scale-factor: 0.35;
+  transform-origin: top left;
+  width: calc(8rem * var(--scale-factor));
+  height: calc(8rem * var(--scale-factor));
+  border-radius: 9999px;
+}
+
+.eyes {
+  width: calc(1rem * var(--scale-factor));
+  height: calc(1rem * var(--scale-factor));
+  position: absolute;
+  background-color: var(--color-white);
+}
+
+.eyes-left {
+  left: calc(var(--spacing) * 5 * var(--scale-factor));
+}
+
+.eyes-right {
+  right: calc(var(--spacing) * 5 * var(--scale-factor));
+}
+
+.eyes-top {
+  bottom: calc(var(--spacing) * 14 * var(--scale-factor));
+}
+
+.eyes-bottom {
+  bottom: calc(var(--spacing) * 6 * var(--scale-factor));
+}
+
+.greeting-enter {
+  opacity: 0;
+  animation: greetingFadeIn 100ms both;
+}
+
+@keyframes greetingFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.greeting-leave {
+  opacity: 1;
+  animation: greetingFadeOut 300ms both;
+}
+
+@keyframes greetingFadeOut {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(20%);
+  }
+}

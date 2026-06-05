@@ -1,11 +1,14 @@
 @if (isShown) {
   <nav
-    class="fixed inset-x-0 top-0 z-[8] flex justify-center px-[clamp(1rem,4vw,4.5rem)] py-4 pointer-events-none max-[420px]:px-3"
+    class="fixed inset-x-0 top-0 z-[8] flex justify-center px-16 py-4 pointer-events-none max-[420px]:px-3"
     aria-label="Primary"
   >
     <div
-      class="flex max-w-[calc(100vw-2rem)] items-center gap-[clamp(0.75rem,2.5vw,1.8rem)] overflow-x-auto rounded-lg border border-black/10 bg-[#f0f0f0]/85 px-[clamp(0.75rem,2vw,1rem)] py-[0.6rem] shadow-2xl backdrop-blur-[14px] pointer-events-auto [scrollbar-width:none] max-[420px]:max-w-[calc(100vw-1.5rem)]"
+      class="flex max-w-[calc(100vw-2rem)] items-center gap-8 rounded-lg border border-black/10 bg-[#f0f0f0]/85 px-4 py-[0.6rem] shadow-2xl backdrop-blur-[14px] pointer-events-auto [scrollbar-width:none] max-[420px]:max-w-[calc(100vw-1.5rem)]"
     >
+      <a href="#">
+        <app-avatar></app-avatar>
+      </a>
       @for (item of navItems; track item.section) {
         <a
           class="site-navbar-link"

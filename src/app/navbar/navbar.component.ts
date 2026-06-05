@@ -1,9 +1,11 @@
 import { Component, DestroyRef, Input, afterNextRender, inject, signal } from '@angular/core';
+import { AvatarComponent } from './avatar/avatar';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
+  imports: [AvatarComponent],
 })
 export class NavbarComponent {
   @Input() isShown = false;
