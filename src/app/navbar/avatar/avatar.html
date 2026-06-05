@@ -1,12 +1,24 @@
-<div class="avatar relative bg-main-accent cursor-pointer" (mouseenter)="onAvatarMouseEnter()">
-  @if (showAvatarGreeting() >= 0) {
-    <span
-      class="absolute -left-10 -translate-x-full translate-y-1/2 whitespace-nowrap text-main-accent"
-      animate.enter="greeting-enter"
-      animate.leave="greeting-leave"
-    >
-      {{ greetings[showAvatarGreeting()] }}
-    </span>
+<div
+  class="avatar relative bg-main-accent cursor-pointer"
+  (mouseenter)="onAvatarMouseEnter()"
+  (mouseleave)="onAvatarMouseLeave()"
+  [class.greeting-active]="showAvatarGreeting() !== -1"
+>
+  @for (greeting of greetings; track $index) {
+    @if (showAvatarGreeting() === $index) {
+      <div
+        class="absolute -left-10 -translate-x-full translate-y-1/2 pointer-events-none"
+        animate.enter="greeting-enter"
+        animate.leave="greeting-leave"
+      >
+        <span
+          class="greeting-label whitespace-nowrap text-main-accent inline-block"
+          [style.transform]="'rotate(' + randomGreetingRotation() + 'deg)'"
+        >
+          {{ greeting }}
+        </span>
+      </div>
+    }
   }
   <div class="eyes eyes-left eyes-bottom eye-bl"></div>
   <div class="eyes eyes-right eyes-bottom eye-br"></div>

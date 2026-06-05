@@ -10,9 +10,10 @@ export class AvatarComponent {
   private hideGreetingTimeoutId: number | undefined = undefined;
 
   protected showAvatarGreeting = signal(-1);
+  protected randomGreetingRotation = signal(0);
   protected readonly greetings = [
-    'Hey!',
     'Cut it out!',
+    'Come on!',
     'Hey, watch it!',
     'Stop that!',
     "That's not funny!",
@@ -46,10 +47,14 @@ export class AvatarComponent {
       i = (i + 1) % this.greetings.length;
     }
     this.showAvatarGreeting.set(i);
-    clearTimeout(this.hideGreetingTimeoutId);
+    this.randomGreetingRotation.set(Math.random() * 50 - 25);
 
+    clearTimeout(this.hideGreetingTimeoutId);
+  }
+
+  protected onAvatarMouseLeave() {
     this.hideGreetingTimeoutId = window.setTimeout(() => {
       this.showAvatarGreeting.set(-1);
-    }, 2000);
+    }, 600);
   }
 }
