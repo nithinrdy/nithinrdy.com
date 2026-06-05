@@ -3,11 +3,6 @@
   min-height: 100dvh;
 }
 
-.main-section--with-navbar {
-  min-height: calc(40vh);
-  min-height: calc(40dvh);
-}
-
 .hero-carousel-track {
   display: flex;
   flex-direction: column;

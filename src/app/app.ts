@@ -4,6 +4,7 @@ import {
   DestroyRef,
   afterNextRender,
   inject,
+  isDevMode,
   signal,
 } from '@angular/core';
 import { EmailBarComponent } from './email-bar/email-bar.component';
@@ -12,6 +13,7 @@ import { LoaderComponent } from './loader/loader.component';
 import { MainSectionComponent } from './main-section/main-section.component';
 import { AboutSectionComponent } from './about-section/about-section.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { WorkSectionComponent } from './work-section/work-section.component';
 
 export const loaderTimeout = 6000;
 
@@ -24,6 +26,7 @@ export const loaderTimeout = 6000;
     LoaderComponent,
     MainSectionComponent,
     NavbarComponent,
+    WorkSectionComponent,
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],
@@ -43,10 +46,13 @@ export class App {
         this.setNavbarVisibility(window.scrollY > 0);
       };
 
-      setTimeout(() => {
-        this.showLoader.set(false);
-        updateNavbarVisibility();
-      }, loaderTimeout);
+      setTimeout(
+        () => {
+          this.showLoader.set(false);
+          updateNavbarVisibility();
+        },
+        isDevMode() ? 0 : loaderTimeout,
+      );
 
       updateNavbarVisibility();
       window.addEventListener('scroll', updateNavbarVisibility, { passive: true });

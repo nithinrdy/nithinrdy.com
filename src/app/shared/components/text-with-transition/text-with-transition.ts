@@ -17,23 +17,23 @@ const transitionCleanupBufferMs = 80;
 
 export type TextTransitionPlanItem =
   | {
-    kind: 'move';
-    value: string;
-    sourceIndex: number;
-    targetIndex: number;
-  }
+      kind: 'move';
+      value: string;
+      sourceIndex: number;
+      targetIndex: number;
+    }
   | {
-    kind: 'exit';
-    value: string;
-    sourceIndex: number;
-    targetIndex: undefined;
-  }
+      kind: 'exit';
+      value: string;
+      sourceIndex: number;
+      targetIndex: undefined;
+    }
   | {
-    kind: 'enter';
-    value: string;
-    sourceIndex: undefined;
-    targetIndex: number;
-  };
+      kind: 'enter';
+      value: string;
+      sourceIndex: undefined;
+      targetIndex: number;
+    };
 
 interface CharacterPosition {
   x: number;
@@ -104,7 +104,7 @@ export class TextWithTransition implements OnChanges, AfterViewInit, OnDestroy {
   protected readonly sourceCharacters = signal<string[]>([]);
   protected readonly targetCharacters = signal<string[]>([]);
 
-  private readonly elementRef = inject<ElementRef<HTMLElement>>(ElementRef);
+  private readonly hostElement = inject<ElementRef<HTMLElement>>(ElementRef);
   private readonly changeDetectorRef = inject(ChangeDetectorRef);
   private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
@@ -284,8 +284,8 @@ export class TextWithTransition implements OnChanges, AfterViewInit, OnDestroy {
   }
 
   private measureCharacterPositions(kind: 'source' | 'target'): CharacterPosition[] {
-    const hostRect = this.elementRef.nativeElement.getBoundingClientRect();
-    const characterElements = this.elementRef.nativeElement.querySelectorAll<HTMLElement>(
+    const hostRect = this.hostElement.nativeElement.getBoundingClientRect();
+    const characterElements = this.hostElement.nativeElement.querySelectorAll<HTMLElement>(
       `[data-text-transition-${kind}-index]`,
     );
 
@@ -300,7 +300,7 @@ export class TextWithTransition implements OnChanges, AfterViewInit, OnDestroy {
   }
 
   private measureTextWidth(kind: 'source' | 'target'): number {
-    const element = this.elementRef.nativeElement.querySelector<HTMLElement>(
+    const element = this.hostElement.nativeElement.querySelector<HTMLElement>(
       `[data-text-transition-${kind}]`,
     );
 
