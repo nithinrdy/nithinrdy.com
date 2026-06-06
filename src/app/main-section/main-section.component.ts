@@ -18,7 +18,7 @@ export class MainSectionComponent {
   readonly carouselItems = [
     { word: 'Nithin', section: 'about' },
     { word: 'a developer', section: 'developing' },
-    { word: 'a writer', section: 'writing' },
+    { word: 'a writer (...trying)', section: 'writing' },
     { word: 'Nithin', section: 'about' },
   ];
   private readonly platformId = inject(PLATFORM_ID);

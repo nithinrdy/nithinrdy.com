@@ -54,6 +54,23 @@
   transform: scaleX(1);
 }
 
+.scroll-on-marker {
+  opacity: 0;
+  transform: translateY(0.6rem);
+  animation: scrollOnFadeIn 500ms ease 0.5s forwards;
+}
+
+@keyframes scrollOnFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(0.6rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 680px) {
   .hero-carousel {
     font-size: 3.5rem;
@@ -69,5 +86,13 @@
 @media (max-width: 360px) {
   .hero-carousel {
     font-size: 2.6rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-on-marker {
+    animation: none;
+    opacity: 1;
+    transform: none;
   }
 }
