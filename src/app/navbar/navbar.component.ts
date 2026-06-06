@@ -15,7 +15,7 @@ export class NavbarComponent {
 
   readonly navItems = [
     { label: 'Nithin', section: 'about' },
-    { label: 'Developer', section: 'work' },
+    { label: 'Developer', section: 'developing' },
     { label: 'Writer', section: 'writing' },
   ];
 

@@ -8,6 +8,7 @@ import {
   OnChanges,
   OnDestroy,
   PLATFORM_ID,
+  SimpleChanges,
   inject,
   signal,
 } from '@angular/core';
@@ -116,7 +117,9 @@ export class TextWithTransition implements OnChanges, AfterViewInit, OnDestroy {
   private cleanupTimeoutId: number | undefined;
   private destroyed = false;
 
-  ngOnChanges(): void {
+  ngOnChanges(changes: SimpleChanges): void {
+    if (!changes['showString2']) return;
+
     const nextText = this.showString2 ? this.string2 : this.string1;
 
     const prefersReducedMotion =

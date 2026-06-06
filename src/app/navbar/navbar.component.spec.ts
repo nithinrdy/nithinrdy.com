@@ -33,6 +33,11 @@ describe('NavbarComponent', () => {
       'Developer',
       'Writer',
     ]);
+    expect(Array.from(links).map((link) => link.getAttribute('href'))).toEqual([
+      '#about',
+      '#developing',
+      '#writing',
+    ]);
   });
 
   it('should underline the active section link', () => {

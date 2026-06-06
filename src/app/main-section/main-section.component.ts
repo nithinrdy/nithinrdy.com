@@ -17,7 +17,7 @@ import {
 export class MainSectionComponent {
   readonly carouselItems = [
     { word: 'Nithin', section: 'about' },
-    { word: 'a developer', section: 'work' },
+    { word: 'a developer', section: 'developing' },
     { word: 'a writer', section: 'writing' },
     { word: 'Nithin', section: 'about' },
   ];

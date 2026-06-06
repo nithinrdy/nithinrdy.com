@@ -14,6 +14,8 @@ import { MainSectionComponent } from './main-section/main-section.component';
 import { AboutSectionComponent } from './about-section/about-section.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { WorkSectionComponent } from './work-section/work-section.component';
+import { WritingSectionComponent } from './writing-section/writing-section.component';
+import { FooterSectionComponent } from './footer-section/footer-section.component';
 
 export const loaderTimeout = 6000;
 
@@ -27,6 +29,8 @@ export const loaderTimeout = 6000;
     MainSectionComponent,
     NavbarComponent,
     WorkSectionComponent,
+    WritingSectionComponent,
+    FooterSectionComponent,
   ],
   templateUrl: './app.html',
   styleUrls: ['./app.css'],

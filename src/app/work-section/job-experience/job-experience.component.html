@@ -38,7 +38,7 @@
     </div>
 
     <p
-      class="m-0 justify-self-end text-right text-base leading-tight font-semibold opacity-50 max-[680px]:col-span-2 max-[680px]:justify-self-start max-[680px]:text-left"
+      class="m-0 justify-self-end text-right text-base leading-tight font-semibold text-black/50 max-[680px]:col-span-2 max-[680px]:justify-self-start max-[680px]:text-left"
     >
       {{ timeframe }}
     </p>
@@ -46,7 +46,7 @@
 
   @if (experience.description.length > 0) {
     <ul
-      class="m-0 grid list-disc gap-2 pl-5 text-xl font-semibold opacity-50 marker:text-main-accent max-[680px]:text-lg"
+      class="m-0 grid list-disc gap-2 pl-5 text-xl font-semibold text-black/50 marker:text-main-accent max-[680px]:text-lg"
     >
       @for (descriptionItem of experience.description; track $index) {
         <li class="pl-1">
