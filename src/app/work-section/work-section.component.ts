@@ -1,16 +1,19 @@
 import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal } from '@angular/core';
 
 import { JobExperienceComponent } from './job-experience/job-experience.component';
-import { JobExperience } from './job-experience/job-experience.model';
-import { EXPERIENCES } from '../constants';
+import { ProjectCardComponent } from './project-card/project-card.component';
+import type { JobExperience } from './job-experience/job-experience.model';
+import type { Project } from './project-card/project.model';
+import { EXPERIENCES, PROJECTS } from '../constants';
 
 @Component({
   selector: 'app-work-section',
-  imports: [JobExperienceComponent],
+  imports: [JobExperienceComponent, ProjectCardComponent],
   templateUrl: './work-section.component.html',
 })
 export class WorkSectionComponent {
   protected readonly jobExperiences: JobExperience[] = EXPERIENCES;
+  protected readonly projects: Project[] = PROJECTS;
   protected readonly visibleExperienceIndexes = signal(new Set<string>());
 
   private readonly destroyRef = inject(DestroyRef);

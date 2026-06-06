@@ -21,5 +21,19 @@
         ></app-job-experience>
       }
     </div>
+
+    <section class="flex flex-col gap-8" aria-labelledby="projects-heading">
+      <header>
+        <h3 id="projects-heading" class="text-4xl leading-none text-main-accent">
+          Also, some stuff I made...
+        </h3>
+      </header>
+
+      <div class="grid grid-cols-2 gap-4 max-[680px]:grid-cols-1">
+        @for (project of projects; track $index) {
+          <app-project-card [project]="project"></app-project-card>
+        }
+      </div>
+    </section>
   </div>
 </section>

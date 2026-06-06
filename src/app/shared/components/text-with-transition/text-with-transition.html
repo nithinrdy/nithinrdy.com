@@ -5,9 +5,7 @@
   [style.width.px]="hostWidth()"
 >
   <!-- invisible while transitioning -->
-  <span class="text-transition__sizer inline-block whitespace-pre" aria-hidden="true">{{
-    visibleText()
-  }}</span>
+  <span class="text-transition__sizer inline-block whitespace-pre">{{ visibleText() }}</span>
 
   <!-- not rendered while stable (renderedCharacters would be an empty array) -->
   <span class="text-transition__stage absolute inset-0 pointer-events-none" aria-hidden="true">

@@ -1,4 +1,7 @@
-export const EXPERIENCES = [
+import { JobExperience } from './work-section/job-experience/job-experience.model';
+import type { Project } from './work-section/project-card/project.model';
+
+export const EXPERIENCES: JobExperience[] = [
   {
     orgName: 'BuildShip',
     orgLogo: 'assets/buildship.png',
@@ -19,7 +22,7 @@ export const EXPERIENCES = [
       ],
       [
         {
-          text: 'Built Global Search using Meilisearch (instance running on a GCP VM), with periodic syncs via CRON and access controlled using tenant-tokens.',
+          text: 'Built Global Search using Meilisearch (instance deployed to a GCP VM), with periodic syncs via CRON and access controlled using tenant-tokens.',
         },
       ],
       [
@@ -72,6 +75,26 @@ export const EXPERIENCES = [
     tools: ['TypeScript', 'ReactJS', 'Tailwind', 'RecoilJS', 'Cypress', 'Vitest', 'Storybook'],
   },
 ];
+
+export const PROJECTS = [
+  {
+    name: 'Open Preview Peek',
+    description:
+      "A browser extension that lets you quickly check how a webpage's Open Graph and Twitter metadata would be displayed when links to the page are posted on various social media platforms and messaging apps. Meant to help with web development and debugging, ideal for use when developing web apps locally.",
+    logo: 'assets/open-preview-peek.png',
+    links: [
+      {
+        platform: 'chromewebstore',
+        href: 'https://chromewebstore.google.com/detail/open-preview-peek/kdohpaiabbmiljbhmhfjkgmienocieml',
+      },
+      {
+        platform: 'github',
+        href: 'https://github.com/nithinrdy/open-preview-peek',
+      },
+    ],
+    tech: ['TypeScript', 'ReactJS', 'Tailwind', 'Open Graph', 'Web Extension APIs'],
+  },
+] satisfies Project[];
 
 export const MONTH_NAMES = [
   'Jan',

@@ -38,6 +38,7 @@ export class App {
 
   private readonly applicationRef = inject(ApplicationRef);
   private readonly destroyRef = inject(DestroyRef);
+  private isNavbarTransitionRunning = false;
 
   constructor() {
     afterNextRender(() => {
@@ -64,7 +65,7 @@ export class App {
   }
 
   private setNavbarVisibility(shouldShow: boolean) {
-    if (this.isNavbarShown() === shouldShow) {
+    if (this.isNavbarShown() === shouldShow || this.isNavbarTransitionRunning) {
       return;
     }
 
@@ -78,9 +79,14 @@ export class App {
       document.startViewTransition &&
       !window.matchMedia('(prefers-reduced-motion: reduce)').matches
     ) {
+      this.isNavbarTransitionRunning = true;
       const transition = document.startViewTransition(triggerDomElementsUpdate);
       transition.ready.catch((error: unknown) => {
         console.warn('Navbar view transition was skipped.', error);
+      });
+      void transition.finished.finally(() => {
+        this.isNavbarTransitionRunning = false;
+        this.setNavbarVisibility(window.scrollY > 0);
       });
       return;
     }

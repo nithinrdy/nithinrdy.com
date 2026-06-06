@@ -1,0 +1,61 @@
+<article
+  #cardArticle
+  class="grid h-full gap-4 rounded-lg border border-gray-300 p-4 transition-shadow duration-300 hover:shadow-lg"
+>
+  <header class="grid grid-cols-[3rem_1fr] items-start gap-4">
+    <div
+      class="flex size-12 items-center justify-center overflow-hidden rounded-lg border border-gray-300 bg-gray-100 text-lg leading-none text-main-accent"
+    >
+      @if (!logoLoadFailed() && project.logo) {
+        <img
+          class="size-full object-contain p-2"
+          [src]="project.logo"
+          alt=""
+          loading="lazy"
+          (error)="markLogoFailed()"
+        />
+      } @else {
+        <span>{{ projectInitial }}</span>
+      }
+    </div>
+
+    <div class="min-w-0">
+      <h4 class="m-0 text-2xl leading-none">
+        {{ project.name }}
+      </h4>
+
+      @if (project.links.length > 0) {
+        <ul class="m-0 mt-2 flex list-none gap-2 flex-wrap p-0">
+          @for (link of project.links; track link.href) {
+            <li>
+              <a
+                class="text-main-accent transition-opacity duration-200 hover:opacity-70"
+                [href]="link.href"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i class="bi bi-{{ getLinkIcon(link.platform) }} text-xl"></i>
+              </a>
+            </li>
+          }
+        </ul>
+      }
+    </div>
+  </header>
+
+  <p class="m-0 text-lg leading-snug font-semibold opacity-50">
+    {{ project.description }}
+  </p>
+
+  @if (project.tech.length > 0) {
+    <ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+      @for (tech of project.tech; track $index) {
+        <li
+          class="rounded-md border border-gray-400 px-2.5 py-1 text-sm leading-none font-semibold opacity-50"
+        >
+          {{ tech }}
+        </li>
+      }
+    </ul>
+  }
+</article>
