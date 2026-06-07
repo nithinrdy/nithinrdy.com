@@ -6,7 +6,7 @@
   <div
     class="max-w-3xl cursor-default select-none text-[2.5rem] leading-[1.2] max-[680px]:text-[2rem] max-[420px]:text-[1.65rem]"
   >
-    <h1 id="about-heading" class="m-0 font-[inherit] text-[inherit] leading-[inherit]">
+    <h1 id="about-heading" class="relative m-0 font-[inherit] text-[inherit] leading-[inherit]">
       Hey there! My name's
       <span
         class="relative cursor-none text-main-accent after:absolute after:right-0 after:bottom-[0.2rem] after:left-0 after:h-0.5 after:origin-center after:scale-x-0 after:bg-main-accent after:transition-transform after:duration-[420ms] after:ease-[cubic-bezier(0.22,1,0.36,1)] after:content-[''] hover:after:scale-x-100"
@@ -17,11 +17,17 @@
           string1="Nithin Reddy"
           string2="nithinrdy"
           [showString2]="isHoveredOver()"
-        ></app-text-with-transition></span
+        ></app-text-with-transition>
+        <div class="absolute left-1 flex items-start transition-opacity" aria-hidden="true">
+          <div class="mt-2 h-8 w-4 rounded-bl-sm border-l border-b border-main-accent"></div>
+          <span class="text-sm ml-1 mt-2">
+            this took me 2 days -- incompetence or persistence? You decide :)
+          </span>
+        </div></span
       >.
     </h1>
 
-    <h2 class="mt-10 mb-0 font-[inherit] text-[inherit] leading-[inherit]">
+    <h2 class="mt-30 mb-0 font-[inherit] text-[inherit] leading-[inherit]">
       I'm a generalist<span class="text-2xl align-super mr-1 ml-0.25 max-[680px]:text-lg"
         >(or so I'd like to think)</span
       >

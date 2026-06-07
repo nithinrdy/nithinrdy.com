@@ -16,7 +16,7 @@ export class AboutSectionComponent {
 
     if (value === true) this.isHoveredOver.set(value);
     if (value === false) {
-      this.timeoutId = window.setTimeout(() => this.isHoveredOver.set(value), 600);
+      this.timeoutId = window.setTimeout(() => this.isHoveredOver.set(value), 500);
     }
   }
 }
