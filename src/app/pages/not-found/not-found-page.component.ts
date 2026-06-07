@@ -6,7 +6,13 @@ import { LinksBarComponent } from '../../components/links-bar/links-bar.componen
 
 @Component({
   selector: 'app-not-found-page',
-  imports: [EmailBarComponent, LinksBarComponent, RouterLink],
+  imports: [
+    // better to import them in both places instead of creating a shell
+    // that way initial animations trigger when navigating between pages.
+    EmailBarComponent,
+    LinksBarComponent,
+    RouterLink,
+  ],
   templateUrl: './not-found-page.component.html',
 })
 export class NotFoundPageComponent {}
