@@ -1,6 +1,6 @@
 <article
   #cardArticle
-  class="grid h-full gap-4 rounded-lg border border-gray-300 p-4 transition-shadow duration-300 hover:shadow-lg"
+  class="flex flex-col h-full gap-4 rounded-lg border border-gray-300 p-4 transition-shadow duration-300 hover:shadow-lg"
 >
   <header class="grid grid-cols-[3rem_1fr] items-start gap-4">
     <div
@@ -48,7 +48,7 @@
   </p>
 
   @if (project.tech.length > 0) {
-    <ul class="m-0 flex list-none flex-wrap gap-2 p-0">
+    <ul class="m-0 mt-auto flex list-none flex-wrap gap-2 p-0">
       @for (tech of project.tech; track $index) {
         <li
           class="rounded-md border border-gray-400 px-2.5 py-1 text-sm leading-none font-semibold opacity-50"

@@ -17,6 +17,7 @@ const PLATFORM_ICONS: Record<PlatformKey, string> = {
   flathub: 'download',
   github: 'github',
   vscode: 'code-square',
+  code: 'code-square',
 };
 
 @Component({
@@ -56,9 +57,9 @@ export class ProjectCardComponent {
 
     card.style.transition = 'transform 0.1s, box-shadow 0.4s';
     card.style.transform = `rotateX(
-      ${(mouseFromBottom - mouseFromTop) / 50}deg
+      ${(mouseFromBottom - mouseFromTop) / 100}deg
     ) rotateY(
-      ${(mouseFromLeft - mouseFromRight) / 50}deg
+      ${(mouseFromLeft - mouseFromRight) / 100}deg
     )`;
   }
 

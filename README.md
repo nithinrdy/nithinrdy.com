@@ -1,59 +1,6 @@
-# NithinrdyCom
+# [nithinrdy.com](https://nithinrdy.com)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.13.
+Source code for my personal website. Built using Angular (uses @angular/ssr) and Tailwind, among other tools.
+There's not much of a point to making this public (because an LLM can probably generate a better app for you if you ask nicely, especially considering all the code in here has a lot of "ME" baked into it and would need work to be made customizable), but here we are.
 
-## Development server
-
-To start a local development server, run:
-
-```bash
-ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+I know there's a dire lack of tests but it's a tiny not-exactly-critical personal website. I wrote a handful of tests to see if I even remember how Jasmine works, but that's about it... What do you mean it's Vitest now and not Jasmine?

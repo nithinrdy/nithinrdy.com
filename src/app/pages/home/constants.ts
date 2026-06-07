@@ -94,6 +94,18 @@ export const PROJECTS = [
     ],
     tech: ['TypeScript', 'ReactJS', 'Tailwind', 'Open Graph', 'Web Extension APIs'],
   },
+  {
+    name: 'Participation in GSoC 2022',
+    description: `Worked on Oppia's web platform as part of Google Summer of Code 2022. Created mocks in Figma, built custom SVG animations and other components from scratch -- aimed at adding to the learner's experience and celebrating their achievements. Also put in place unit and E2E tests (using Jasmine and Protractor).`,
+    logo: 'https://developers.google.com/open-source/gsoc/resources/downloads/GSoC-icon-192.png',
+    links: [
+      {
+        platform: 'code',
+        href: 'https://summerofcode.withgoogle.com/archive/2022/projects/5XM0ONH7',
+      },
+    ],
+    tech: ['TypeScript', 'Angular', 'Python', 'Jasmine', 'Protractor', 'Figma'],
+  },
 ] satisfies Project[];
 
 export const MONTH_NAMES = [
