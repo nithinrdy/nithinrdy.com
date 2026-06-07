@@ -5,6 +5,8 @@
   <a
     class="text-2xl font-normal mt-2 [writing-mode:vertical-rl] hover:translate-y-1 hover:text-main-accent transition-all duration-300 hover:cursor-none"
     href="mailto:hello@nithinrdy.com"
+    (mouseenter)="setAvatarMood('happy')"
+    (mouseleave)="setAvatarMood('neutral')"
   >
     hello@nithinrdy.com
   </a>

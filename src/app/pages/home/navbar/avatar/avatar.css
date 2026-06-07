@@ -6,6 +6,25 @@
   border-radius: 9999px;
 }
 
+.smiling-eyes {
+  font-weight: var(--font-weight-bold);
+  color: var(--color-white);
+  position: absolute;
+  font-size: 1rem;
+  transition-property: opacity;
+  transition-duration: 200ms;
+}
+
+.smiling-eye-left {
+  left: calc(var(--spacing) * 2);
+  bottom: calc(var(--spacing) * 3);
+}
+
+.smiling-eye-right {
+  right: calc(var(--spacing) * 2);
+  bottom: calc(var(--spacing) * 3);
+}
+
 .eyes {
   width: calc(1rem * var(--scale-factor));
   height: calc(1rem * var(--scale-factor));

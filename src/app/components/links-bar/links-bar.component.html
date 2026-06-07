@@ -9,6 +9,8 @@
       target="_blank"
       rel="noopener"
       class="inline-block hover:-translate-y-1 hover:text-main-accent hover:cursor-none transition-all duration-300"
+      (mouseenter)="setAvatarMood('happy')"
+      (mouseleave)="setAvatarMood('neutral')"
     >
       <i class="bi bi-{{ link.id }} text-[32px]"></i>
     </a>

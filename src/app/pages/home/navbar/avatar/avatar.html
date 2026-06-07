@@ -20,8 +20,23 @@
       </div>
     }
   }
-  <div class="eyes eyes-left eyes-bottom eye-bl"></div>
-  <div class="eyes eyes-right eyes-bottom eye-br"></div>
-  <div class="eyes eyes-left eyes-top eye-tl"></div>
-  <div class="eyes eyes-right eyes-top eye-tr"></div>
+
+  <div
+    class="eyes eyes-left eyes-bottom eye-bl"
+    [class.opacity-0]="avatarMoodData() === 'happy'"
+  ></div>
+  <div
+    class="eyes eyes-right eyes-bottom eye-br"
+    [class.opacity-0]="avatarMoodData() === 'happy'"
+  ></div>
+  <div
+    class="eyes eyes-left eyes-top eye-tl"
+    [class.opacity-0]="avatarMoodData() === 'happy'"
+  ></div>
+  <div
+    class="eyes eyes-right eyes-top eye-tr"
+    [class.opacity-0]="avatarMoodData() === 'happy'"
+  ></div>
+  <p class="smiling-eyes smiling-eye-left" [class.opacity-0]="avatarMoodData() === 'neutral'">^</p>
+  <p class="smiling-eyes smiling-eye-right" [class.opacity-0]="avatarMoodData() === 'neutral'">^</p>
 </div>

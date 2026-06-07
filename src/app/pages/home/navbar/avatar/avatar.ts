@@ -1,4 +1,5 @@
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
+import { AvatarMoodService } from '../../../../singleton-services/avatar-mood.service';
 
 const POINTER_TRACKING_BREAKPOINT = 1024;
 
@@ -10,6 +11,8 @@ const POINTER_TRACKING_BREAKPOINT = 1024;
 export class AvatarComponent {
   private hostElement = inject<ElementRef<HTMLElement>>(ElementRef);
   private hideGreetingTimeoutId: number | undefined = undefined;
+
+  protected avatarMoodData = inject(AvatarMoodService).data;
 
   protected showAvatarGreeting = signal(-1);
   protected randomGreetingRotation = signal(0);
@@ -43,7 +46,10 @@ export class AvatarComponent {
     const eyes = this.hostElement.nativeElement.querySelectorAll(
       '.eyes',
     ) as NodeListOf<HTMLElement>;
-    eyes.forEach((eye: HTMLElement) => {
+    const smilingEyes = this.hostElement.nativeElement.querySelectorAll(
+      '.smiling-eyes',
+    ) as NodeListOf<HTMLElement>;
+    [...eyes, ...smilingEyes].forEach((eye: HTMLElement) => {
       eye.style.transform = `translate(${eyeMovementX}px, ${eyeMovementY}px)`;
     });
   };
@@ -61,7 +67,10 @@ export class AvatarComponent {
     const eyes = this.hostElement.nativeElement.querySelectorAll(
       '.eyes',
     ) as NodeListOf<HTMLElement>;
-    eyes.forEach((eye: HTMLElement) => (eye.style.transform = ''));
+    const smilingEyes = this.hostElement.nativeElement.querySelectorAll(
+      '.smiling-eyes',
+    ) as NodeListOf<HTMLElement>;
+    [...eyes, ...smilingEyes].forEach((eye: HTMLElement) => (eye.style.transform = ''));
   }
 
   protected onAvatarMouseEnter() {
