@@ -1,14 +1,1 @@
-@if (showLoader()) {
-  <div class="loader-overlay" animate.leave="loader-leave">
-    <app-loader></app-loader>
-  </div>
-} @else {
-  <app-navbar [isShown]="isNavbarShown()"></app-navbar>
-  <app-main-section [navbarShown]="isNavbarShown()"></app-main-section>
-}
-<app-about-section></app-about-section>
-<app-work-section></app-work-section>
-<app-writing-section></app-writing-section>
-<app-footer-section></app-footer-section>
-<app-links-bar [isShown]="!showLoader()"></app-links-bar>
-<app-email-bar [isShown]="!showLoader()"></app-email-bar>
+<router-outlet></router-outlet>
