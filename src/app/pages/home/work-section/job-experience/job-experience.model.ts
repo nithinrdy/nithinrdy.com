@@ -5,7 +5,7 @@ export interface JobDescriptionSegment {
 
 export interface JobExperience {
   orgName: string;
-  orgLogo: string;
+  url: string;
   role: string;
   startMonth: number;
   startYear: number;

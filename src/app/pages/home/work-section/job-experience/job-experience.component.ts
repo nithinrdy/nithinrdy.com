@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 import { JobExperience } from './job-experience.model';
 import { MONTH_NAMES } from '../../constants';
@@ -11,8 +11,6 @@ export class JobExperienceComponent {
   @Input() experience!: JobExperience;
   @Input() isVisible = false;
 
-  protected logoLoadFailed = signal(false);
-
   protected get timeframe() {
     const startDate = `${MONTH_NAMES[this.experience.startMonth - 1]} ${this.experience.startYear}`;
     const endDate =
@@ -21,13 +19,5 @@ export class JobExperienceComponent {
         : `${MONTH_NAMES[this.experience.endMonth - 1]} ${this.experience.endYear}`;
 
     return `${startDate} - ${endDate}`;
-  }
-
-  protected get orgInitial() {
-    return this.experience.orgName[0];
-  }
-
-  protected markLogoFailed() {
-    this.logoLoadFailed.set(true);
   }
 }

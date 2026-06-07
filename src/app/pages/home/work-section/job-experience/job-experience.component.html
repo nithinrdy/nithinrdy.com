@@ -10,35 +10,25 @@
     aria-hidden="true"
   ></span>
 
-  <header class="grid grid-cols-[3rem_1fr_auto] items-start gap-4 max-sm:grid-cols-[3rem_1fr]">
-    <div
-      class="flex size-12 items-center justify-center overflow-hidden rounded-lg border border-gray-300 bg-gray-100 text-lg leading-none text-main-accent"
-      aria-hidden="true"
-    >
-      @if (!logoLoadFailed() && experience.orgLogo) {
-        <img
-          class="size-full object-contain p-2"
-          [src]="experience.orgLogo"
-          alt=""
-          loading="lazy"
-          (error)="markLogoFailed()"
-        />
-      } @else {
-        <span>{{ orgInitial }}</span>
-      }
-    </div>
-
+  <header class="grid grid-cols-[1fr_auto] items-start gap-x-4 gap-y-2 max-sm:grid-cols-1">
     <div class="min-w-0">
       <h3 class="m-0 text-3xl leading-none max-sm:text-2xl">
         {{ experience.role }}
       </h3>
       <p class="m-0 mt-1 text-xl leading-tight text-main-accent max-sm:text-lg">
-        {{ experience.orgName }}
+        <a
+          class="underline decoration-transparent underline-offset-4 transition-colors duration-200 hover:decoration-main-accent focus-visible:decoration-main-accent focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-main-accent"
+          [href]="experience.url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {{ experience.orgName }}
+        </a>
       </p>
     </div>
 
     <p
-      class="m-0 justify-self-end text-right text-base leading-tight font-semibold text-black/50 max-sm:col-span-2 max-sm:justify-self-start max-sm:text-left"
+      class="m-0 justify-self-end text-right text-base leading-tight font-semibold text-black/50 max-sm:justify-self-start max-sm:text-left"
     >
       {{ timeframe }}
     </p>

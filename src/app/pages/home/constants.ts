@@ -4,7 +4,7 @@ import type { Project } from './work-section/project-card/project.model';
 export const EXPERIENCES: JobExperience[] = [
   {
     orgName: 'BuildShip',
-    orgLogo: 'assets/buildship.png',
+    url: 'https://buildship.com',
     role: 'Software Engineer',
     startMonth: 10,
     startYear: 2023,
@@ -54,7 +54,7 @@ export const EXPERIENCES: JobExperience[] = [
   },
   {
     orgName: 'Zenskar',
-    orgLogo: 'assets/zenskar.jpeg',
+    url: 'https://zenskar.com',
     role: 'Engineering Intern',
     startMonth: 3,
     startYear: 2023,

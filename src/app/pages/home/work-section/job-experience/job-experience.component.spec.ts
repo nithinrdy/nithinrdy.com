@@ -9,7 +9,7 @@ describe('JobExperienceComponent', () => {
 
   const experience: JobExperience = {
     orgName: 'Example Org',
-    orgLogo: '',
+    url: 'https://example.com',
     role: 'Developer',
     startMonth: 1,
     startYear: 2024,
