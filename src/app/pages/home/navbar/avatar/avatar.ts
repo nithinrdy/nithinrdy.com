@@ -1,5 +1,7 @@
 import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
 
+const POINTER_TRACKING_BREAKPOINT = 1024;
+
 @Component({
   selector: 'app-avatar',
   templateUrl: './avatar.html',
@@ -21,6 +23,11 @@ export class AvatarComponent {
 
   @HostListener('document:mousemove', ['$event'])
   handleMouseMove = (event: MouseEvent) => {
+    if (!this.eyesShouldFollowCursor()) {
+      this.resetEyeTransforms();
+      return;
+    }
+
     const mouseX = event.clientX;
     const mouseY = event.clientY;
 
@@ -40,6 +47,22 @@ export class AvatarComponent {
       eye.style.transform = `translate(${eyeMovementX}px, ${eyeMovementY}px)`;
     });
   };
+
+  @HostListener('window:resize')
+  handleWindowResize = () => {
+    if (!this.eyesShouldFollowCursor()) this.resetEyeTransforms();
+  };
+
+  private eyesShouldFollowCursor() {
+    return typeof window !== 'undefined' && window.innerWidth >= POINTER_TRACKING_BREAKPOINT;
+  }
+
+  private resetEyeTransforms() {
+    const eyes = this.hostElement.nativeElement.querySelectorAll(
+      '.eyes',
+    ) as NodeListOf<HTMLElement>;
+    eyes.forEach((eye: HTMLElement) => (eye.style.transform = ''));
+  }
 
   protected onAvatarMouseEnter() {
     let i = Math.floor(Math.random() * this.greetings.length);

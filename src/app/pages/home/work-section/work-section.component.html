@@ -1,16 +1,12 @@
 <section
   id="developing"
-  class="min-h-screen px-16 py-24 max-[680px]:px-6"
+  class="min-h-screen px-16 py-24 max-sm:px-6"
   aria-labelledby="developing-heading"
 >
   <div class="mx-auto flex max-w-3xl flex-col gap-12">
     <header class="flex flex-col gap-3">
-      <h2 id="developing-heading" class="m-0 text-6xl leading-none text-main-accent">
-        Developing
-      </h2>
-      <h3 class="m-0 text-4xl leading-none text-black/55">
-        Work
-      </h3>
+      <h2 id="developing-heading" class="m-0 text-6xl leading-none text-main-accent">Developing</h2>
+      <h3 class="m-0 text-4xl leading-none text-black/55">Work</h3>
     </header>
 
     <div
@@ -32,7 +28,7 @@
         </h3>
       </header>
 
-      <div class="grid grid-cols-2 gap-4 max-[680px]:grid-cols-1">
+      <div class="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
         @for (project of projects; track $index) {
           <app-project-card [project]="project"></app-project-card>
         }

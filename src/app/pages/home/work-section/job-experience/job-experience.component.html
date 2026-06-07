@@ -1,5 +1,5 @@
 <article
-  class="relative grid translate-y-8 gap-4 pl-8 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none max-[680px]:pl-6"
+  class="relative grid translate-y-8 gap-4 pl-8 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none max-sm:pl-6"
   [class.translate-y-8]="!isVisible"
   [class.translate-y-0]="isVisible"
   [class.opacity-0]="!isVisible"
@@ -10,7 +10,7 @@
     aria-hidden="true"
   ></span>
 
-  <header class="grid grid-cols-[3rem_1fr_auto] items-start gap-4 max-[680px]:grid-cols-[3rem_1fr]">
+  <header class="grid grid-cols-[3rem_1fr_auto] items-start gap-4 max-sm:grid-cols-[3rem_1fr]">
     <div
       class="flex size-12 items-center justify-center overflow-hidden rounded-lg border border-gray-300 bg-gray-100 text-lg leading-none text-main-accent"
       aria-hidden="true"
@@ -29,16 +29,16 @@
     </div>
 
     <div class="min-w-0">
-      <h3 class="m-0 text-3xl leading-none max-[680px]:text-2xl">
+      <h3 class="m-0 text-3xl leading-none max-sm:text-2xl">
         {{ experience.role }}
       </h3>
-      <p class="m-0 mt-1 text-xl leading-tight text-main-accent max-[680px]:text-lg">
+      <p class="m-0 mt-1 text-xl leading-tight text-main-accent max-sm:text-lg">
         {{ experience.orgName }}
       </p>
     </div>
 
     <p
-      class="m-0 justify-self-end text-right text-base leading-tight font-semibold text-black/50 max-[680px]:col-span-2 max-[680px]:justify-self-start max-[680px]:text-left"
+      class="m-0 justify-self-end text-right text-base leading-tight font-semibold text-black/50 max-sm:col-span-2 max-sm:justify-self-start max-sm:text-left"
     >
       {{ timeframe }}
     </p>
@@ -46,7 +46,7 @@
 
   @if (experience.description.length > 0) {
     <ul
-      class="m-0 grid list-disc gap-2 pl-5 text-xl font-semibold text-black/50 marker:text-main-accent max-[680px]:text-lg"
+      class="m-0 grid list-disc gap-2 pl-5 text-xl font-semibold text-black/50 marker:text-main-accent max-sm:text-lg"
     >
       @for (descriptionItem of experience.description; track $index) {
         <li class="pl-1">
