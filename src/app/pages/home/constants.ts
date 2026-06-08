@@ -13,10 +13,10 @@ export const EXPERIENCES: JobExperience[] = [
     description: [
       [
         {
-          text: 'Converted the core project into a Turborepo-managed monorepo with multiple apps & packages, with local HMR across packages -- ',
+          text: 'Converted the core project into a Turborepo-managed monorepo with multiple apps & packages, with ',
         },
         {
-          text: "here's how!",
+          text: 'clean HMR across packages when making changes locally',
           href: 'https://nithinrdy.com', // TODO: Change this.
         },
       ],
@@ -95,8 +95,8 @@ export const PROJECTS = [
     tech: ['TypeScript', 'ReactJS', 'Tailwind', 'Open Graph', 'Web Extension APIs'],
   },
   {
-    name: 'Participation in GSoC 2022',
-    description: `Worked on Oppia's web platform as part of Google Summer of Code 2022. Created mocks in Figma, built custom SVG animations and other components from scratch -- aimed at adding to the learner's experience and celebrating their achievements. Also put in place unit and E2E tests (using Jasmine and Protractor).`,
+    name: 'GSoC 2022 with Oppia',
+    description: `Worked on Oppia's web platform as part of Google Summer of Code 2022. Created mocks in Figma, built custom SVG animations and other components from scratch -- aimed at adding to the learners' experience. Also put in place unit and E2E tests (using Jasmine and Protractor).`,
     logo: 'https://developers.google.com/open-source/gsoc/resources/downloads/GSoC-icon-192.png',
     links: [
       {
