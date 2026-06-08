@@ -43,9 +43,8 @@
     </div>
   </header>
 
-  <p class="m-0 text-lg leading-snug font-semibold opacity-50">
-    {{ project.description }}
-  </p>
+  <!-- prettier-ignore -->
+  <p class="m-0 text-lg leading-snug font-semibold opacity-50 whitespace-pre-wrap">{{ project.description }}</p>
 
   @if (project.tech.length > 0) {
     <ul class="m-0 mt-auto flex list-none flex-wrap gap-2 p-0">
