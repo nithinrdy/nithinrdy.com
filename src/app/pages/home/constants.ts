@@ -96,7 +96,7 @@ export const PROJECTS = [
   },
   {
     name: 'GSoC 2022 with Oppia',
-    description: `Worked on Oppia's web platform as part of Google Summer of Code 2022. Created mocks in Figma, built custom SVG animations and other components from scratch -- aimed at adding to the learners' experience. Also put in place unit and E2E tests (using Jasmine and Protractor).\n\nIs 2022 too long ago? Maybe. But this was the first time I built something used by real people that I was (am) proud of.`,
+    description: `Worked on Oppia's web platform as part of Google Summer of Code 2022. Created mocks in Figma, built custom SVG animations and other components from scratch -- aimed at adding to the learners' experience. Also put in place unit and E2E tests (using Jasmine and Protractor).\n\nIs 2022 too long ago? Maybe. But this was the first time I built something used by real people, so here it is.`,
     logo: 'https://developers.google.com/open-source/gsoc/resources/downloads/GSoC-icon-192.png',
     links: [
       {
