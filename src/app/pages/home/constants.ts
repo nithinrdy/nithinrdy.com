@@ -17,7 +17,7 @@ export const EXPERIENCES: JobExperience[] = [
         },
         {
           text: 'clean HMR across packages when making changes locally',
-          href: 'https://nithinrdy.com', // TODO: Change this.
+          href: 'https://nithinrdy.hashnode.dev/avoid-repeatedly-building-internal-packages-in-a-nodejs-monorepo-during-development',
         },
       ],
       [
