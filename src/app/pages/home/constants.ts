@@ -13,31 +13,34 @@ export const EXPERIENCES: JobExperience[] = [
     description: [
       [
         {
-          text: 'Converted the core project into a Turborepo-managed monorepo with multiple apps & packages, with ',
+          text: 'Migrated the core project to a Turborepo-managed monorepo with multiple apps & packages (shared UI components, Tailwind config and icons as packages consumed by Vite and NextJS apps), with ',
         },
         {
-          text: 'clean HMR across packages when making changes locally',
+          text: 'clean HMR across packages',
           href: 'https://nithinrdy.hashnode.dev/avoid-repeatedly-building-internal-packages-in-a-nodejs-monorepo-during-development',
         },
+        {
+          text: "when making changes."
+        }
       ],
       [
         {
-          text: 'Built Global Search using Meilisearch (instance deployed to a GCP VM), with periodic syncs via CRON and access controlled using tenant-tokens.',
+          text: 'Built Global Search using Meilisearch (served from a GCP VM), indexing a total of 16,000 documents with periodic syncs via CRON and access controlled using tenant-tokens.',
         },
       ],
       [
         {
-          text: 'Built the BuildShip Templates & Nodes explorer NextJS app, leveraging SSR and using Tailwind for styling.',
+          text: 'Built the fully-responsive public-facing BuildShip Templates & Nodes explorer NextJS app from scratch, leveraging ISR and using Tailwind for styling (perfect score on 3/4 Lighthouse categories with a 98 on accessibility).',
         },
       ],
       [
         {
-          text: "Improved the app's lazy-loading, bundling, and chunking strategies, and reduced the built entrypoint size by ~48%.",
+          text: "Improved the app's lazy-loading, bundling, and chunking strategies, and reduced the built entrypoint size by ~48% (FCP down by 1.1s, blocking time down by 1.2s, among other improvements).",
         },
       ],
       [
         {
-          text: "Built a file-explorer style Interface over Google Cloud Storage's flat namespace, supporting core file operations.",
+          text: "Built a file-explorer style interface over Google Cloud Storage's flat namespace with core file operations. Created APIs using Multer for file uploads on Cloud Run instances (with form-parsing, per-execution-isolated storage and post-execution cleanup).",
         },
       ],
     ],
@@ -45,6 +48,7 @@ export const EXPERIENCES: JobExperience[] = [
       'TypeScript',
       'ReactJS',
       'Jotai',
+      'Material UI',
       'Firestore',
       'NextJS',
       'GCP',
@@ -78,9 +82,22 @@ export const EXPERIENCES: JobExperience[] = [
 
 export const PROJECTS = [
   {
+    name: 'AudioPass',
+    description:
+      'Open source multi-threaded Linux desktop app that lets you play local audio through a virtual mic. UI and audio processing handled by separate dedicated threads communicating via MPSC and PipeWire channels.',
+    logo: 'assets/audiopass.png',
+    links: [
+      {
+        platform: 'github',
+        href: 'https://github.com/nithinrdy/audiopass',
+      },
+    ],
+    tech: ['Rust', 'egui', 'PipeWire'],
+  },
+  {
     name: 'Open Preview Peek',
     description:
-      "A browser extension that lets you quickly check how a webpage's Open Graph and Twitter metadata would be displayed when links to the page are posted on various social media platforms and messaging apps. Meant to help with web development and debugging, ideal for use when developing web apps locally.",
+      "Open source browser extension that lets you view how a webpage's Open Graph and Twitter metadata would be displayed when links to the page are posted on social media platforms and messaging apps. Meant to help with web development and debugging, ideal for use when developing web apps locally.",
     logo: 'assets/open-preview-peek.png',
     links: [
       {
