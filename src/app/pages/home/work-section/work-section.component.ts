@@ -1,4 +1,12 @@
-import { Component, DestroyRef, ElementRef, afterNextRender, inject, signal } from '@angular/core';
+import {
+  Component,
+  DestroyRef,
+  ElementRef,
+  afterNextRender,
+  inject,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 
 import { JobExperienceComponent } from './job-experience/job-experience.component';
 import { ProjectCardComponent } from './project-card/project-card.component';
@@ -9,6 +17,7 @@ import { EXPERIENCES, PROJECTS } from '../constants';
 @Component({
   selector: 'app-work-section',
   imports: [JobExperienceComponent, ProjectCardComponent],
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './work-section.component.html',
 })
 export class WorkSectionComponent {
@@ -53,7 +62,7 @@ export class WorkSectionComponent {
 
           this.visibleExperienceIndexes.set(nextVisibleIndexes);
         },
-        { rootMargin: '0px 0px -20% 0px', threshold: 0.10 },
+        { rootMargin: '0px 0px -20% 0px', threshold: 0.1 },
       );
 
       for (const element of experienceElements) {

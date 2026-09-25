@@ -7,11 +7,13 @@ import {
   afterNextRender,
   inject,
   signal,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 @Component({
   selector: 'app-main-section',
   templateUrl: './main-section.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./main-section.component.css'],
 })
 export class MainSectionComponent {

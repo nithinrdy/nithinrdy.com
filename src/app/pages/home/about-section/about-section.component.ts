@@ -1,10 +1,11 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, ChangeDetectionStrategy } from '@angular/core';
 import { TextWithTransition } from '../shared/components/text-with-transition/text-with-transition';
 
 @Component({
   selector: 'app-about-section',
   templateUrl: './about-section.component.html',
   imports: [TextWithTransition],
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./about-section.component.css'],
 })
 export class AboutSectionComponent {

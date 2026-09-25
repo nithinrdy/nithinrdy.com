@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { JobExperience } from './job-experience.model';
 import { MONTH_NAMES } from '../../constants';
 
 @Component({
   selector: 'app-job-experience',
+  changeDetection: ChangeDetectionStrategy.Eager,
   templateUrl: './job-experience.component.html',
 })
 export class JobExperienceComponent {

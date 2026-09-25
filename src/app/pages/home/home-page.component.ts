@@ -6,6 +6,7 @@ import {
   inject,
   isDevMode,
   signal,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { AboutSectionComponent } from './about-section/about-section.component';
@@ -34,6 +35,7 @@ export const loaderTimeout = 6000;
     WritingSectionComponent,
   ],
   templateUrl: './home-page.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./home-page.component.css'],
 })
 export class HomePageComponent {

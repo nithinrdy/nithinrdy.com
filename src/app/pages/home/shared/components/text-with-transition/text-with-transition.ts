@@ -11,6 +11,7 @@ import {
   SimpleChanges,
   inject,
   signal,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 const transitionDurationMs = 420;
@@ -91,6 +92,7 @@ export function createCharacterTransitionPlan(
 @Component({
   selector: 'app-text-with-transition',
   templateUrl: './text-with-transition.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrl: './text-with-transition.css',
 })
 export class TextWithTransition implements OnChanges, AfterViewInit, OnDestroy {

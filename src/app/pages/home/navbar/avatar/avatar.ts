@@ -1,4 +1,11 @@
-import { Component, ElementRef, HostListener, inject, signal } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  HostListener,
+  inject,
+  signal,
+  ChangeDetectionStrategy,
+} from '@angular/core';
 import { AvatarMoodService } from '../../../../singleton-services/avatar-mood.service';
 
 const POINTER_TRACKING_BREAKPOINT = 1024;
@@ -6,6 +13,7 @@ const POINTER_TRACKING_BREAKPOINT = 1024;
 @Component({
   selector: 'app-avatar',
   templateUrl: './avatar.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./avatar.css'],
 })
 export class AvatarComponent {

@@ -1,9 +1,10 @@
-import { Component, inject, Input } from '@angular/core';
+import { Component, inject, Input, ChangeDetectionStrategy } from '@angular/core';
 import { AvatarMoodService } from '../../singleton-services/avatar-mood.service';
 
 @Component({
   selector: 'app-email-bar',
   templateUrl: './email-bar.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   styleUrls: ['./email-bar.component.css'],
 })
 export class EmailBarComponent {

@@ -6,6 +6,7 @@ import {
   Input,
   signal,
   viewChild,
+  ChangeDetectionStrategy,
 } from '@angular/core';
 
 import type { Project } from './project.model';
@@ -23,6 +24,7 @@ const PLATFORM_ICONS: Record<PlatformKey, string> = {
 @Component({
   selector: 'app-project-card',
   templateUrl: './project-card.component.html',
+  changeDetection: ChangeDetectionStrategy.Eager,
   host: { style: 'perspective: 1000px;' },
 })
 export class ProjectCardComponent {
