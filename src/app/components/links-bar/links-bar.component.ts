@@ -36,7 +36,7 @@ export class LinksBarComponent {
     },
     {
       id: 'substack',
-      url: 'https://nithinrdy.substack.com/',
+      url: 'https://ramblings.nithinrdy.com',
     },
   ];
 
